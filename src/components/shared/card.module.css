@@ -1,7 +1,0 @@
-.card {
-  @apply rounded-lg flex justify-center relative max-w-screen-sm mb-12;
-}
-
-.reverse {
-  @apply bg-gray-200 text-black rounded-lg flex justify-center relative max-w-screen-sm mb-12;
-}

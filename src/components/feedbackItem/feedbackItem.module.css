@@ -1,3 +1,7 @@
+.card {
+  @apply rounded-lg flex justify-center relative max-w-screen-sm mb-12;
+}
+
 .num_display {
   @apply bg-gradient-to-br cursor-pointer from-purple-400 to-purple-800 text-white absolute -left-3 -top-3 w-8 h-8 font-bold rounded-full flex justify-center items-center select-none;
 }

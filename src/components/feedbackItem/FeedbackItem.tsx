@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styles from "./feedbackItem.module.css";
-import Card from "../shared/Card";
 
 type Props = {
   item: {
@@ -13,7 +12,7 @@ type Props = {
 
 const FeedbackItem: FC<Props> = ({ item, handleDelete }) => {
   return (
-    <Card reverse={false}>
+    <div className={styles.card}>
       <div className={styles.num_display}>{item.rating}</div>
       <button className={styles.close} onClick={() => handleDelete(item.id)}>
         <svg
@@ -30,7 +29,7 @@ const FeedbackItem: FC<Props> = ({ item, handleDelete }) => {
         </svg>
       </button>
       <p className={styles.text_display}>{item.text}</p>
-    </Card>
+    </div>
   );
 };
 

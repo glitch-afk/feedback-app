@@ -1,6 +1,5 @@
 import { FC } from "react";
-import styles from "./feedbacklist.module.css";
-import FeedbackItem from "../feedbackItem/FeedbackItem";
+import FeedbackItem from "./feedbackItem/FeedbackItem";
 
 interface Ifeedback {
   id: number;
@@ -19,7 +18,7 @@ const FeedbackList: FC<Props> = ({ feedback, handleDelete }) => {
   }
 
   return (
-    <div className={styles.feedback_list}>
+    <div className="flex flex-col">
       {feedback.map((item) => (
         <FeedbackItem key={item.id} item={item} handleDelete={handleDelete} />
       ))}
