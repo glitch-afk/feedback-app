@@ -1,0 +1,11 @@
+.num_display {
+  @apply bg-gradient-to-br cursor-pointer from-purple-400 to-purple-800 text-white absolute -left-3 -top-3 w-8 h-8 font-bold rounded-full flex justify-center items-center select-none;
+}
+
+.text_display {
+  @apply bg-gray-800 bg-opacity-40 text-white rounded-lg w-max p-6;
+}
+
+.close {
+  @apply absolute right-3 top-2;
+}
