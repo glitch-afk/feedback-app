@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import RatingSelect from "./Ratingselect";
 
 type Props = {};
 
@@ -7,6 +8,7 @@ const FeedbackForm = (props: Props) => {
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [msg, setMsg] = useState<string | null>(null);
+  const [rating, setRating] = useState(10);
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (text === "") {
@@ -29,6 +31,7 @@ const FeedbackForm = (props: Props) => {
           Please leave a feedback
         </h2>
         {/* @todo - rating select component */}
+        <RatingSelect select={(rating: number) => setRating(rating)} />
         <div className="flex flex-col md:flex-row space-y-2 md:space-x-5 md:space-y-0 w-full justify-center">
           <input
             className="border border-gray-400 rounded px-2 py-1 text-sm text-white w-full md:w-3/4 bg-transparent"
