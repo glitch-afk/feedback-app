@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import Button from "./Button";
 import RatingSelect from "./Ratingselect";
 
-type Props = {};
+type Props = {
+  handleAdd: ({}) => void;
+};
 
-const FeedbackForm = (props: Props) => {
+const FeedbackForm = ({ handleAdd }: Props) => {
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [msg, setMsg] = useState<string | null>(null);
-  const [rating, setRating] = useState(10);
+  const [rating, setRating] = useState(3);
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (text === "") {
@@ -24,9 +26,24 @@ const FeedbackForm = (props: Props) => {
     setText(e.target.value);
   };
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    if (text.trim().length > 10) {
+      const newFeedback = {
+        text,
+        rating,
+      };
+      handleAdd(newFeedback);
+      setText("");
+    }
+  };
+
   return (
     <div className="bg-gray-800 bg-opacity-40 rounded mb-10 py-4 px-4 w-11/12 md:w-4/6 xl:w-3/6">
-      <form className="flex flex-col items-center w-full">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center w-full"
+      >
         <h2 className="text-2xl font-bold text-purple-600 mb-6">
           Please leave a feedback
         </h2>

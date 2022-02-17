@@ -1,5 +1,5 @@
 .card {
-  @apply rounded-lg flex justify-center relative max-w-screen-sm mb-12;
+  @apply rounded-lg min-w-full relative max-w-screen-sm mb-12;
 }
 
 .num_display {
@@ -7,7 +7,7 @@
 }
 
 .text_display {
-  @apply bg-gray-800 bg-opacity-40 text-white rounded-lg w-max p-6;
+  @apply bg-gray-800 bg-opacity-40 text-white rounded-lg w-full p-6;
 }
 
 .close {

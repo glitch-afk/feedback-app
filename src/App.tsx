@@ -8,6 +8,8 @@ import {
   FeedbackList,
 } from "./components";
 
+import { v4 as uuidv4 } from "uuid";
+
 type Props = {};
 
 const App = (props: Props) => {
@@ -19,12 +21,17 @@ const App = (props: Props) => {
     }
   };
 
+  const addFeedback = (newFeedback: any) => {
+    newFeedback.id = uuidv4();
+    setFeedback([newFeedback, ...feedback]);
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.section}>
         <Header />
         <div className={styles.content}>
-          <FeedbackForm />
+          <FeedbackForm handleAdd={addFeedback} />
           <FeedbackStats feedback={feedback} />
           <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
         </div>
