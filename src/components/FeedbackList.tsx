@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import FeedbackItem from "./feedbackItem/FeedbackItem";
 
 interface Ifeedback {
@@ -19,11 +20,30 @@ const FeedbackList: FC<Props> = ({ feedback, handleDelete }) => {
 
   return (
     <div className="flex flex-col">
-      {feedback.map((item) => (
-        <FeedbackItem key={item.id} item={item} handleDelete={handleDelete} />
-      ))}
+      <AnimatePresence>
+        {feedback.map((item) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <FeedbackItem
+              key={item.id}
+              item={item}
+              handleDelete={handleDelete}
+            />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 };
+// <div className="flex flex-col">
+//   {feedback.map((item) => (
+//     <FeedbackItem key={item.id} item={item} handleDelete={handleDelete} />
+//   ))}
+// </div>
 
 export default FeedbackList;
